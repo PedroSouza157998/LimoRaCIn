@@ -75,7 +75,8 @@ def game_engine(flag_soma, background, pitu, carro_azul, carro_verde, texto, fon
                     y_bitcoin = -70
                     x_bitcoin = randint(160,629)
                     
-                    barulho_moeda = pygame.mixer.music.load('coin_sound.mp3')
+                    barulho_moeda = pygame.mixer.music.load('coin_sound.wav')
                     pygame.mixer.music.play()
+                    pygame.mixer.music.set_volume(0.1)
                     
         pygame.display.update()             
