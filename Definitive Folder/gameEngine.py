@@ -1,8 +1,7 @@
 from variables import *
 
-
-def game_engine(velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin):
-    while True:
+def game_engine(flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin):
+    while flag_run == True:
         points_str = str(points)
         pitu_points_str = str(pitu_points)
         texto = fonte.render(points_str, 1,(255,255,255))
@@ -46,8 +45,8 @@ def game_engine(velocidade, contador_pitu, pitu_points, pitu_points_str, points_
         y_azul += flag_soma
         y_pitu += flag_soma
         y_bitcoin += flag_soma
-    #Condicionao para que, se os objetos interativos passarem do limite inferior, volta para cima
-
+    
+    #Condicionao para que, se os objetos interativos passarem do limite inferior, voltam para cima
         if y_azul > altura:
             y_azul = -100
             x_azul = randint(285,916)
@@ -58,13 +57,16 @@ def game_engine(velocidade, contador_pitu, pitu_points, pitu_points_str, points_
             y_bitcoin = -70
             x_bitcoin = randint(305,916)
 
+    #Definição da colisão com o carro azul, resultando no fim do jogo
         if y_verde < (y_azul + 120):
             if y_verde < y_azul - 150:
                 pass
             else:
                 if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
-                    exit()
-
+                    flag_run = False
+                    game_engine(flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin)
+    
+    #Definição da coleta da PITU, resultando nom incremento nas velocidades dos objetoss interativos
         if y_verde < (y_pitu + 71):
             if y_verde < y_pitu - 150:
                 pass
@@ -75,7 +77,8 @@ def game_engine(velocidade, contador_pitu, pitu_points, pitu_points_str, points_
                     flag_soma += 0.3
                     velocidade += 0.05
                     pitu_points += 1
-        
+
+    #Definição da coleta do bitcoin resultando em um som e um incremento nos pontos    
         if y_verde < (y_bitcoin + 40):
             if y_verde < y_bitcoin - 150:
                 pass
