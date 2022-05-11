@@ -13,7 +13,7 @@ text_2 = fonte_pe.render('START' , True , cor)
 text_3 = fonte_pe.render('QUIT' , True , cor)
 flag_cop = False
 flag_quit_0 = False
-fundo_3 = pygame.image.load('fundo.png')
+fundo_3 = pygame.image.load('./imagens/fundo.png')
 flag_batida = False
 
 def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin):
@@ -102,7 +102,7 @@ def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, p
                     y_bitcoin = -70
                     x_bitcoin = randint(305,916)
                     
-                    barulho_moeda = pygame.mixer.music.load('coin_sound.wav')
+                    barulho_moeda = pygame.mixer.music.load('./musicas/coin_sound.wav')
                     pygame.mixer.music.play()
                     pygame.mixer.music.set_volume(0.1)
                     

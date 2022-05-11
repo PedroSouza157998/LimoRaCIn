@@ -22,7 +22,7 @@ text_2 = fonte_peq.render('START' , True , cor)
 text_3 = fonte_peq.render('QUIT' , True , cor)
 flag_copy = False
 flag_quit_2 = False
-fundo_2 = pygame.image.load('fundo.png')
+fundo_2 = pygame.image.load('./imagens/fundo.png')
 
 while True:  
     for ev in pygame.event.get():  
