@@ -1,7 +1,7 @@
 from variables import *
 
 def game_engine(flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin):
-    while flag_run == True:
+    while flag_run:
         points_str = str(points)
         pitu_points_str = str(pitu_points)
         texto = fonte.render(points_str, 1,(255,255,255))
@@ -64,8 +64,7 @@ def game_engine(flag_run, velocidade, contador_pitu, pitu_points, pitu_points_st
             else:
                 if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
                     flag_run = False
-                    game_engine(flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin)
-    
+
     #Definição da coleta da PITU, resultando nom incremento nas velocidades dos objetoss interativos
         if y_verde < (y_pitu + 71):
             if y_verde < y_pitu - 150:
