@@ -10,3 +10,5 @@
 * Clone o projeto em sua máquina, [seguindo essas instruções](https://docs.github.com/pt/repositories/creating-and-managing-repositories/cloning-a-repository)
 * Utilizando linha de comandos, execute o arquivo run.py
 * Utilize as teclas W,A,S,D para jogar e seja feliz 😃
+
+![image](https://user-images.githubusercontent.com/78317354/167938016-1c593be5-7b10-4601-bb3b-2e7161806254.png)
