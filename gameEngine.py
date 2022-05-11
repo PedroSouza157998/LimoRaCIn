@@ -77,27 +77,7 @@ def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, p
             if y_verde < y_azul - 150:
                 pass
             else:
-                while True:
-                    if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
-                        for ev in pygame.event.get():  
-                            if ev.type == pygame.QUIT:  
-                                pygame.quit()
-
-                            if ev.type == pygame.MOUSEBUTTONDOWN:  
-                                if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
-                                    exit()
-
-                        screen2.blit(fundo_2,(0,0))  
-                        screen2.blit(titulo, (largura/2 - 340, altura/8))
-                        mouse = pygame.mouse.get_pos()
-                        
-                        if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
-                            pygame.draw.rect(screen2,cor_clara,[largura_2/2 - 65 ,altura_2/2 + 140,140,40])  
-                        else:  
-                            pygame.draw.rect(screen2,cor_escura,[largura_2/2 - 65,altura_2/2 + 140,140,40])
-    
-                        screen2.blit(text_3, ((largura_2/2) - 33,(altura_2/2 + 144)))
-                        pygame.display.update()
+                 if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)): return;
                     
 
     #Definição da coleta da PITU, resultando nom incremento nas velocidades dos objetoss interativos
@@ -128,3 +108,26 @@ def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, p
                     points += 1
             
         pygame.display.update()
+
+    while True:
+        if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
+            for ev in pygame.event.get():  
+                if ev.type == pygame.QUIT:  
+                    pygame.quit()
+
+        if ev.type == pygame.MOUSEBUTTONDOWN:  
+            if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
+                exit()
+
+        screen2.blit(fundo_2,(0,0))  
+        screen2.blit(titulo, (largura/2 - 340, altura/8))
+        mouse = pygame.mouse.get_pos()
+                            
+        if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
+            pygame.draw.rect(screen2,cor_clara,[largura_2/2 - 65 ,altura_2/2 + 140,140,40])  
+        else:  
+            pygame.draw.rect(screen2,cor_escura,[largura_2/2 - 65,altura_2/2 + 140,140,40])
+        
+        screen2.blit(text_3, ((largura_2/2) - 33,(altura_2/2 + 144)))
+        pygame.display.update()
+        flag_quit_2 = True

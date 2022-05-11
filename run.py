@@ -25,7 +25,6 @@ flag_quit_2 = False
 fundo_2 = pygame.image.load('fundo.png')
 
 while True:  
-    print(flag_batida)
     for ev in pygame.event.get():  
         if ev.type == pygame.QUIT:  
             pygame.quit()
