@@ -31,6 +31,8 @@ y_bitcoin = -360
 tela = pygame.display.set_mode((largura,altura))
 relogio = pygame.time.Clock()
 flag_run = True
+fundo_2 = pygame.image.load('fundo.png')
+flag_batida = False
 
 pygame.display.set_caption('LImo RaCIn')
 fonte_padrao = pygame.font.get_default_font()
