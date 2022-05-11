@@ -23,6 +23,7 @@ text2 = smallfont.render('QUIT' , True , color)
 flag = False
 flag_quit = False
 fundo = pygame.image.load('fundo.png')
+musica = False
 
 while True:  
     for ev in pygame.event.get():  
@@ -32,7 +33,19 @@ while True:
     #Criação de menu inicial com 2 opcções: START e QUIT
         if ev.type == pygame.MOUSEBUTTONDOWN:  
             if width/2 - 67 <= mouse[0] <= (width/2 + 76) and height/2 <= mouse[1] <= height/2+40:  
-                flag = True  
+                musica = True
+                if musica:
+                    i = 0
+                    for b in sounds:
+                        i += 1
+                        if i == 1:
+                            b.play(-1).set_volume(0.02)
+                        elif i == 2:
+                            b.play(-1).set_volume(0.08)
+                        else:
+                            b.play(-1).set_volume(0.5)
+                carro.runGame(game_engine)
+  
 
         if ev.type == pygame.MOUSEBUTTONDOWN:  
             if width/2 - 67 <= mouse[0] <= width/2 + 76 and height/2 + 138 <= mouse[1] <= height/2 + 181:  
@@ -58,17 +71,6 @@ while True:
     pygame.display.update()
     
     #Iniciação do código fonte do jogo (game_engine) e iniciação dos arquivos de música, caso o botão START do menu for ativado
-    if flag == True:
-        i = 0
-        for b in sounds:
-            i += 1
-            if i == 1:
-                b.play(-1).set_volume(0.02)
-            elif i == 2:
-                b.play(-1).set_volume(0.08)
-            else:
-                b.play(-1).set_volume(0.5)
-        carro.runGame(game_engine)
 
     if flag_quit == True:
         exit()
