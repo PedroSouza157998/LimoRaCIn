@@ -2,18 +2,19 @@ from variables import *
 
 pygame.init()  
 res = (1263,839)  
-screen2 = pygame.display.set_mode(res)  
+screen3 = pygame.display.set_mode(res)  
 cor = (255,255,255)  
-cor_clara = (170,170,170)  
-cor_escura = (100,100,100)  
-largura_2 = screen2.get_width()  
-altura_2 = screen2.get_height()  
-fonte_peq = pygame.font.SysFont('Corbel',35)  
-text_2 = fonte_peq.render('START' , True , cor)
-text_3 = fonte_peq.render('QUIT' , True , cor)
-flag_copy = False
-flag_quit_2 = False
-fundo_2 = pygame.image.load('fundo.png')
+cor_light = (170,170,170)  
+cor_dark = (100,100,100)  
+largura_3 = screen3.get_width()  
+altura_3 = screen3.get_height()  
+fonte_pe = pygame.font.SysFont('Corbel',35)  
+text_2 = fonte_pe.render('START' , True , cor)
+text_3 = fonte_pe.render('QUIT' , True , cor)
+flag_cop = False
+flag_quit_0 = False
+fundo_3 = pygame.image.load('fundo.png')
+flag_batida = False
 
 def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, pitu_points_str, points_str, points, flag_soma, background, pitu, carro_azul, carro_verde, texto, fonte, fonte_padrao, relogio, tela, x_verde, y_verde, x_azul, y_azul, x_pitu, y_pitu, x_bitcoin, y_bitcoin, bitcoin):
     while flag_run == True:
@@ -77,9 +78,9 @@ def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, p
             if y_verde < y_azul - 150:
                 pass
             else:
-                 if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)): return;
-                    
-
+                if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
+                    flag_batida = True
+                            
     #Definição da coleta da PITU, resultando nom incremento nas velocidades dos objetoss interativos
         if y_verde < (y_pitu + 71):
             if y_verde < y_pitu - 150:
@@ -107,27 +108,19 @@ def game_engine(flag_batida, flag_run, velocidade, contador_pitu, pitu_points, p
                     
                     points += 1
             
-        pygame.display.update()
-
-    while True:
-        if (x_verde > x_azul and x_verde < (x_azul + 55)) or ((x_verde + 55) > x_azul and (x_verde + 55) < (x_azul + 55)):
+        while flag_batida == True:    
             for ev in pygame.event.get():  
+                screen3.blit(fundo_2,(0,0))  
+                screen3.blit(titulo, (largura/2 - 340, altura/8))
+                screen3.blit(contador_pitu,(largura_3/2 - 70 ,altura_3/2 + 45))
+                screen3.blit(pitu, (largura_3/2 - 130 ,altura_3/2 + 20))
+                screen3.blit(bitcoin,(largura_3/2 + 25 ,altura_3/2 + 35))
+                screen3.blit(texto,(largura_3/2 + 95 ,altura_3/2 + 45))
+                mouse = pygame.mouse.get_pos()
+                            
                 if ev.type == pygame.QUIT:  
                     pygame.quit()
-
-        if ev.type == pygame.MOUSEBUTTONDOWN:  
-            if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
-                exit()
-
-        screen2.blit(fundo_2,(0,0))  
-        screen2.blit(titulo, (largura/2 - 340, altura/8))
-        mouse = pygame.mouse.get_pos()
-                            
-        if largura_2/2 - 67 <= mouse[0] <= largura_2/2 + 76 and altura_2/2 + 138 <= mouse[1] <= altura_2/2 + 181:  
-            pygame.draw.rect(screen2,cor_clara,[largura_2/2 - 65 ,altura_2/2 + 140,140,40])  
-        else:  
-            pygame.draw.rect(screen2,cor_escura,[largura_2/2 - 65,altura_2/2 + 140,140,40])
-        
-        screen2.blit(text_3, ((largura_2/2) - 33,(altura_2/2 + 144)))
+                                                
+                pygame.display.update()
         pygame.display.update()
         flag_quit_2 = True
