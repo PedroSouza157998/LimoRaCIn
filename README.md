@@ -9,4 +9,4 @@
 * Instale o Pygame, [seguindo a documentação oficial](https://www.pygame.org/download.shtml)
 * Clone o projeto em sua máquina, [seguindo essas instruções](https://docs.github.com/pt/repositories/creating-and-managing-repositories/cloning-a-repository)
 * Utilizando linha de comandos, execute o arquivo run.py
-* Utilize as teclas W,A,S,D para jogar e sejá feliz 😃
+* Utilize as teclas W,A,S,D para jogar e seja feliz 😃
